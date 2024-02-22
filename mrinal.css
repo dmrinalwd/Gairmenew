@@ -1182,4 +1182,15 @@ background-color: #f0f0f0;
 input[type="radio"]:checked {
 background-color: #09c403;
 }
+.input[type="radio"]:checked + label:before {
+  background-color: green;
+  top: 0;
+}
+
+.input[type="radio"]:checked + label {
+  background-color: royalblue;
+  color: #fff;
+  border-color: rgb(129, 235, 129);
+  animation: radio-translate 0.5s ease-in-out;
+}
 /* end survey details */
