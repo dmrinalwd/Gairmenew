@@ -1190,7 +1190,7 @@ background-color: #09c403;
 .input[type="radio"]:checked + label {
   background-color: royalblue;
   color: #fff;
-  border-color: rgb(129, 235, 129);
+  border-color: 2px rgb(15, 19, 15);
   animation: radio-translate 0.5s ease-in-out;
 }
 /* end survey details */
