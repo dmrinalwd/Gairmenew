@@ -18,37 +18,57 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid shadow-lg p-3 mb-1 bg-body">
-            <a class="navbar-brand" href="#"><img src="bizxu-img/favi-ico.png" width="45"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 center">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="job.html">Job</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="survey.html">Survey</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary" href="login.html"> Login </a>
-                    </li>
-                    <li class="nav-item ms-1">
-                        <a class="btn btn-outline-danger " href="login.html">Register</a>
-                    </li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light " aria-label="Offcanvas navbar large">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="bizxu-img/favi-ico.png" width="45"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+            aria-controls="offcanvasNavbar2">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasNavbar2"
+            aria-labelledby="offcanvasNavbar2Label">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Gairme</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
             </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="job.html">Job</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="survey.html">Survey</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                <li class="nav-item p-2">
+                  <a class="btn btn-outline-success" href="login.html">Login</a>
+                </li>
+                <li class="nav-item p-2">
+                  <a class="btn btn-outline-danger " href="login.html">Register</a>
+                </li>
+                <li class="nav-item p-2">
+                  <div class="dropdown">
+                    <button class="dropbtn btn btn-outline-primary">For Client</button>
+                    <div class="dropdown-content">
+                      <a href="#">Client</a>
+                      <a href="#">Sub Client</a>
+                      <a href="#">Admin</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              </li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </nav>
+      </nav>
     <!-- start caterories -->
     <div class="container-fluid">
         <div class="row  co-md-4">
