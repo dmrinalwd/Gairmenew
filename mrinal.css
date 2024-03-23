@@ -124,7 +124,7 @@ html {
 }
 
 body {
- background-color: var(--body-bg-color);
+ background-color: #ffffff;
  font-family: var(--body-font);
  font-size: 15px;
  color: var(--body-color);
