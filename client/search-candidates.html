@@ -12,10 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- text area editor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
 
     <style>
-        
         .card {
             max-width: 40em;
             /* flex-direction: row; */
@@ -73,7 +71,6 @@
                 font-size: 0.9em;
             }
         }
- 
     </style>
 
 </head>
@@ -106,10 +103,11 @@
                             <a class="nav-link" href="client-user.html">Client User</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="post-job.html">Post Job</a>
+                            <a class="nav-link" href="post-job.html">Post Job</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="search-candidates.html">Search Candidates</a>
+                            <a class="nav-link active" aria-current="page" href="search-candidates.html">Search
+                                Candidates</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="post-survey.html">Survey</a>
@@ -138,10 +136,10 @@
     <div class="container border">
         <div class="container my-5">
             <div class="row">
-                <h5>Buy Job Posting</h5>
+                <h5>Buy Candidate Database</h5>
                 <select id="buyUser" onchange="Calculate()" class="form-select" aria-label="Default select example"
                     name="buyuser">
-                    <option value="0">Select How many Job Posting you want to buy</option>
+                    <option value="0">Select Candidate Serch</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="5">5</option>
@@ -164,7 +162,7 @@
                 </select>
             </div>
         </div>
-        <div class="container border border-4 border-warning" id="calculation" style="display:none;">
+        <div class="container border border-4 border-success" id="calculation" style="display:none;">
             <div class="row">
                 <div class="table-responsive-sm">
                     <table class="table caption-top table-sm">
@@ -204,139 +202,39 @@
             </div>
         </div>
     </div>
-    <!-- start post content default -->
-    <div class="container mt-3 border">
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed bg-primary text-light " type="button"
-                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                        aria-controls="flush-collapseOne">
-                        List of Job Post
-                    </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <div class="table-responsive-sm">
-                            <table
-                                class="table caption-top table-sm table-hover table-striped text-center table-bordered border-success">
-                                <thead class="table-success">
-                                    <tr>
-                                        <th scope="col">Job Title</th>
-                                        <th scope="col">Posted On</th>
-                                        <th scope="col">Responses</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>abc job</td>
-                                        <td>31-03-2024</td>
-                                        <td>40</td>
-                                    </tr>
-                                    <tr>
-                                        <td>abc job</td>
-                                        <td>31-03-2024</td>
-                                        <td>40</td>
-                                    </tr>
-                                    <tr>
-                                        <td>abc job</td>
-                                        <td>31-03-2024</td>
-                                        <td>40</td>
-                                    </tr>
-                                    <tr>
-                                        <td>abc job</td>
-                                        <td>31-03-2024</td>
-                                        <td>40</td>
-                                    </tr>
-                                    <tr>
-                                        <td>abc job</td>
-                                        <td>31-03-2024</td>
-                                        <td>40</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- start create post  -->
+
+    <!-- start serching candidates  -->
     <div class="container my-5 border  border-primary">
         <div class="row p-3">
             <form>
-                <legend class="fw-bold text-center pb-3">Create Job Post</legend>
+                <legend class="fw-bold text-center pb-3">Serach Candidates</legend>
 
                 <div class="row mb-3">
-                    <label for="disabledTextInput" class="col-sm-2 col-form-label ">Client Name</label>
+                    <label for="disabledTextInput" class="col-sm-2 col-form-label ">Keyword Serch</label>
                     <div class="col-sm-10">
-                        <input type="text" id="disabledTextInput" class="form-control" name="" placeholder=""
-                            value="Abc Company" disabled>
+                        <input type="text" id="disabledTextInput" class="form-control" name="keyword"
+                            placeholder="Serach By Keywords">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="employmenttype" class="col-sm-2 col-form-label">Employment Type</label>
+                    <label for="experience" class="col-sm-2 col-form-label">Search By Experience</label>
                     <div class="col-sm-6">
-                        <select id="employmenttype" class="form-select" aria-label="Default select example"
-                            name="employmenttype" required>
-                            <option value="">Select Type</option>
-                            <option value="Full Time - Day Shift">Full Time - Day Shift</option>
-                            <option value="Full Time - Night Shift">Full Time - Night Shift</option>
-                            <option value="Full Time - Rotational Shift">Full Time - Rotational Shift</option>
-                            <option value="Part Time - Day Shift">Part Time - Day Shift</option>
-                            <option value="Part Time - Day Shift">Part Time - Day Shift</option>
-                            <option value="Part Time - Rotational Shift">Part Time - Rotational Shift</option>
-                            <option value="Freelancer  - Day Shift">Freelancer - Day Shift</option>
-                            <option value="Freelancer  - Night Shift">Freelancer - Night Shift</option>
-                            <option value="Freelancer  - Rotational Shift">Freelancer - Rotational Shift</option>
-                            <option value="Contract - Day Shift">Contract - Day Shift</option>
-                            <option value="Contract - Night Shift">Contract - Night Shift</option>
-                            <option value="Contract - Rotational Shift">Contract - Rotational Shift</option>
-                            <option value="Temporary">Temporary</option>
+                        <select id="experience" class="form-select" aria-label="Default select example"
+                            name="experience">
+                            <option>Select Experience</option>
+                            <option value="0 - 2 years">0 - 2 years</option>
+                            <option value="2 - 5 years">2 - 5 years</option>
+                            <option value="5 - 8 years">5 - 8 years</option>
+                            <option value="8 - 12 years">8 - 12 years</option>
+                            <option value="12 - 16 years">12 - 16 years</option>
+                            <option value="16 - 22 years">16 - 22 years</option>
+                            <option value="22 - 30 years">22 - 30 years</option>
+                            <option value="30+ years">30+ years</option>
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="workmode" class="col-sm-2 col-form-label">Work mode</label>
-                    <div class="col-sm-6">
-                        <select id="workmode" class="form-select" aria-label="Default select example" name="workmode">
-                            <option value="">Select Work mode</option>
-                            <option value="In Office">In Office</option>
-                            <option value="Remote">Remote</option>
-                            <option value="Hybrid">Hybrid</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="interview" class="col-sm-2 col-form-label">Interview Mode</label>
-                    <div class="col-sm-6">
-                        <select id="interview" class="form-select" aria-label="Default select example"
-                            name="interviewmode">
-                            <option value="">Select Inyterview mode</option>
-                            <option value="All telephonic Round">All telephonic Round</option>
-                            <option value="Partly Telephonic">Partly Telephonic</option>
-                            <option value="Full Virtual Round">Full Virtual Round</option>
-                            <option value="Partly Virtual Round"> Partly Virtual Round</option>
-                            <option value="Face to face"> Face to face</option>
-
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputjobDescription" class="col-sm-2 col-form-label">Job Description</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control editor" id="c0" rows="10" maxlength="2000" required></textarea>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputjobDescription" class="col-sm-2 col-form-label">Set Skill</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control editor" id="c1" rows="10" maxlength="250" required></textarea>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="salaryrange" class="col-sm-2 col-form-label">Salary Range</label>
+                    <label for="salaryrange" class="col-sm-2 col-form-label">Serch By Salary</label>
                     <div class="col-sm-6">
                         <select id="salaryrange" class="form-select" aria-label="Default select example"
                             name="salaryrange" required>
@@ -424,119 +322,130 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputCandidateProfile" class="col-sm-2 col-form-label">Desired Candidate Profile</label>
+                    <label for="employmenttype" class="col-sm-2 col-form-label">Employment Type</label>
+                    <div class="col-sm-6">
+                        <select id="employmenttype" class="form-select" aria-label="Default select example"
+                            name="employmenttype" required>
+                            <option value="">Select Type</option>
+                            <option value="Full Time - Day Shift">Full Time - Day Shift</option>
+                            <option value="Full Time - Night Shift">Full Time - Night Shift</option>
+                            <option value="Full Time - Rotational Shift">Full Time - Rotational Shift</option>
+                            <option value="Part Time - Day Shift">Part Time - Day Shift</option>
+                            <option value="Part Time - Day Shift">Part Time - Day Shift</option>
+                            <option value="Part Time - Rotational Shift">Part Time - Rotational Shift</option>
+                            <option value="Freelancer  - Day Shift">Freelancer - Day Shift</option>
+                            <option value="Freelancer  - Night Shift">Freelancer - Night Shift</option>
+                            <option value="Freelancer  - Rotational Shift">Freelancer - Rotational Shift</option>
+                            <option value="Contract - Day Shift">Contract - Day Shift</option>
+                            <option value="Contract - Night Shift">Contract - Night Shift</option>
+                            <option value="Contract - Rotational Shift">Contract - Rotational Shift</option>
+                            <option value="Temporary">Temporary</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="workmode" class="col-sm-2 col-form-label">Work mode</label>
+                    <div class="col-sm-6">
+                        <select id="workmode" class="form-select" aria-label="Default select example" name="workmode">
+                            <option value="">Select Work mode</option>
+                            <option value="In Office">In Office</option>
+                            <option value="Remote">Remote</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="interview" class="col-sm-2 col-form-label">Interview Mode</label>
+                    <div class="col-sm-6">
+                        <select id="interview" class="form-select" aria-label="Default select example"
+                            name="interviewmode">
+                            <option value="">Select Inyterview mode</option>
+                            <option value="All telephonic Round">All telephonic Round</option>
+                            <option value="Partly Telephonic">Partly Telephonic</option>
+                            <option value="Full Virtual Round">Full Virtual Round</option>
+                            <option value="Partly Virtual Round"> Partly Virtual Round</option>
+                            <option value="Face to face"> Face to face</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="currentLocation" class="col-sm-2 col-form-label ">Current Location</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control editor" id="c2" rows="10" maxlength="250" required></textarea>
+                        <input type="text" id="currentLocation" class="form-control" name="currentlocation"
+                            placeholder="Serach By Current Location">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="experience" class="col-sm-2 col-form-label">Experience in Years</label>
-                    <div class="col-sm-6">
-                        <select id="experience" class="form-select" aria-label="Default select example" name="experience">
-                            <option>Select Experience</option>
-                            <option value="0 - 2 years">0 - 2 years</option>
-                            <option value="2 - 5 years">2 - 5 years</option>
-                            <option value="5 - 8 years">5 - 8 years</option>
-                            <option value="8 - 12 years">8 - 12 years</option>
-                            <option value="12 - 16 years">12 - 16 years</option>
-                            <option value="16 - 22 years">16 - 22 years</option>
-                            <option value="22 - 30 years">22 - 30 years</option>
-                            <option value="30+ years">30+ years</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="state" class="col-sm-2 col-form-label"> Location</label>
-                    <div class="col-sm-2">
-                        <select id="state" class="form-select" aria-label="Default select example" name="state">
-                            <option>Select State</option>
-                            <option value="">State 1</option>
-                            <option value="">State 2</option>
-                            <option value="">State 3</option>
-                            <option value="">State 4</option>
-                            <option value="">State 5</option>
-                            <option value="">State 6</option>
-                            
-                        </select>
-                    </div>
-                    <div class="col-sm-2">
-                        <select id="dist" class="form-select" aria-label="Default select example" name="dist">
-                            <option>Select District</option>
-                            <option value="">dist 1</option>
-                            <option value="">dist 2</option>
-                            <option value="">dist 3</option>
-                            <option value="">dist 4</option>
-                            <option value="">dist 5</option>
-                            <option value="">dist 6</option>
-                            
-                        </select>
-                    </div>
-                    <div class="col-sm-2">
-                        <select id="dist" class="form-select" aria-label="Default select example" name="dist">
-                            <option>Select Subdist</option>
-                            <option value="">Sub Dist 1</option>
-                            <option value="">Sub Dist 2</option>
-                            <option value="">Sub Dist 3</option>
-                            <option value="">Sub Dist 4</option>
-                            <option value="">Sub Dist 5</option>
-                            <option value="">Sub Dist 6</option>                            
-                        </select>
-                    </div>
-                    <div class="col-sm-2">
-                        <select id="villages" class="form-select" aria-label="Default select example" name="dist">
-                            <option>Select Villages</option>
-                            <option value="">Villages 1</option>
-                            <option value="">Villages 2</option>
-                            <option value="">Villages 3</option>
-                            <option value="">Villages 4</option>
-                            <option value="">Villages 5</option>
-                            <option value="">Villages 6</option>                            
-                        </select>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" id="inputMobile" placeholder="Local Area">
-                    </div>
-                    <!-- <p class="me-end btn btn-success">Add Location</p> -->
-                </div>
-                <div class="row mb-3">
-                    <label for="inputMobile" class="col-sm-2 col-form-label">Department</label>
+                    <label for="preferredLocation" class="col-sm-2 col-form-label "> Preferred Location</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputMobile" name="department" required>
+                        <input type="text" id="preferredLocation" class="form-control" name="preferredlocation"
+                            placeholder="Serach By Keywords">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="education" class="col-sm-2 col-form-label">Educational Qualification</label>
+                    <label for="noticePeriod" class="col-sm-2 col-form-label">Notice Period/ Availabilty to join</label>
                     <div class="col-sm-6">
-                        <select id="education" class="form-select" aria-label="Default select example" name="education">
-                            <option>Select Education</option>
-                            <option value="0 - 2 years">Education 1</option>
-                            <option value="2 - 5 years">Education 2</option>
-                            <option value="5 - 8 years">Education 3</option>
-                            <option value="8 - 12 years">Education 4</option>
-                            <option value="12 - 16 years">Education 5</option>
-                            <option value="16 - 22 years">Education 6</option>
-                    
+                        <select id="noticePeriod" class="form-select" aria-label="Default select example"
+                            name="interviewmode">
+                            <option value="">Select Notice Period</option>
+                            <option value="Immediate Joiners">Immediate Joiners</option>
+                            <option value="7 Days Notice Period">7 Days Notice Period</option>
+                            <option value="15 Days Notice Period">15 Days Notice Period</option>
+                            <option value="30 Days Notice Period"> 30 Days Notice Period</option>
+                            <option value="3 Month Notice Period"> 3 Month Notice Period</option>
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="vacancy" class="col-sm-2 col-form-label">Number of Vacancies</label>
+                    <label for="gender" class="col-sm-2 col-form-label">Gender</label>
                     <div class="col-sm-6">
-                        <select id="vacancy" class="form-select" aria-label="Default select example" name="vacancy">
-                            <option>Select No of Vacancy</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                    
+                        <select id="gender" class="form-select" aria-label="Default select example"
+                            name="gender">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value=">Female">Female</option>
+                            <option value="Transgender">Transgender</option>                            
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="row mb-3">
+                    <label for="age" class="col-sm-2 col-form-label">Candidate Age</label>
+                    <div class="col-sm-6">
+                        <select id="gender" class="form-select" aria-label="Default select example"
+                            name="gender">
+                            <option value="">Select Age</option>
+                            <option value=">18 - 22 years">18 - 22 years</option>
+                            <option value=">22 - 28 years">22 - 28 years</option>
+                            <option value="28 - 35 years">28 - 35 years</option>  
+                            <option value="35 - 40 years">35 - 40 years</option>                            
+                            <option value="40 - 45 years">40 - 45 years</option>                            
+                            <option value="45 - 50 years">45 - 50 years</option>   
+                            <option value="50 - 55 years">50 - 55 years</option>                            
+                            <option value="55 - 60 years">55 - 60 years</option> 
+                            <option value=">60 +">60 +</option>   
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="workpermit" class="col-sm-2 col-form-label ">Work permit for</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="workpermit" class="form-control" name="workpermit"
+                            placeholder="Work permit for">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
+    </div>
+    <div class="container border">
+        <h5>Show Candidates</h5>
+
+        <div class="d-flex">
+            <div class="p-2 flex-grow-1">Candidates Information</div>
+            <div class="p-2">Profile Pic</div>
+            <div class="p-2">Social Media</div>
+          </div>
     </div>
 
 
@@ -568,25 +477,20 @@
         </footer>
     </div>
     <script>
-        //     $('#buyUser').on('change', function() {
-        //       let selector = parseInt(document.getElementById('buyUser').value);  
 
-        //     $('#calculation').show();    
-        // });
         function Calculate() {
-            // $('#calculation').show(); 
             let selector = parseInt(document.getElementById('buyUser').value);
             let result;
             let gstvalue;
             let subtotal;
             if (selector != "0") {
                 $('#calculation').show();
-                result = selector * 500;
+                result = selector * 7;
                 gstvalue = result / 100 * 18;
                 subtotal = result + gstvalue;
-                document.getElementById('totaluser').innerHTML = selector + " Job Posting";
+                document.getElementById('totaluser').innerHTML = selector + " Candidates Serching";
                 document.getElementById('quantity').innerHTML = selector;
-                document.getElementById('price').innerHTML = "500";
+                document.getElementById('price').innerHTML = "7";
                 document.getElementById('total').innerHTML = result;
                 document.getElementById('gstvalue').innerHTML = gstvalue;
                 document.getElementById('gsttotalval').innerHTML = gstvalue;
@@ -597,18 +501,10 @@
             }
         }
         // checkeditor
-        var allEditors = document.querySelectorAll('.editor');
-        for (var i = 0; i < allEditors.length; ++i) {
-            ClassicEditor.create(allEditors[i],
-                document.querySelector('.editor'))
-                
-                .catch(error => {
-                    console.error(error);
-                })
-        }
-   
+
+
     </script>
-        
+
     <!-- <script src="../mrinal.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

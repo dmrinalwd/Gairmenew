@@ -13,3 +13,9 @@ items.forEach((el) => {
     next = next.nextElementSibling
   }
 });
+// this is for text area editor
+ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );

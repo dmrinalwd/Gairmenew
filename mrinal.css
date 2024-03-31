@@ -1231,3 +1231,11 @@ background-color: #09c403;
   animation: radio-translate 0.5s ease-in-out;
 }
 /* end survey details */
+/* ckeditor height */
+.ck-editor__editable {
+  min-height: 200px;
+}
+.required:after {
+  content: " *";
+  color: red;
+}
