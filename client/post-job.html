@@ -73,7 +73,21 @@
                 font-size: 0.9em;
             }
         }
- 
+ /* select skill */
+ .suggestion {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.selected-skill {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 40%;
+    background-color: #a4a4a4;
+    display: inline-block;
+    cursor: pointer;
+}
     </style>
 
 </head>
@@ -332,7 +346,10 @@
                 <div class="row mb-3">
                     <label for="inputjobDescription" class="col-sm-2 col-form-label">Set Skill</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control editor" id="c1" rows="10" maxlength="250" required></textarea>
+                        <div id="selectedSkills"></div>
+                        <input type="text" class="form-control" id="skillInput" oninput="showSuggestions(this.value)"  maxlength="250" required>
+                        <div id="suggestions"></div>
+
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -446,7 +463,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="state" class="col-sm-2 col-form-label"> Location</label>
+                    <label for="locarion" class="col-sm-2 col-form-label"> Location</label>
                     <div class="col-sm-2">
                         <select id="state" class="form-select" aria-label="Default select example" name="state">
                             <option>Select State</option>
@@ -472,7 +489,7 @@
                         </select>
                     </div>
                     <div class="col-sm-2">
-                        <select id="dist" class="form-select" aria-label="Default select example" name="dist">
+                        <select id="subdist" class="form-select" aria-label="Default select example" name="subdist">
                             <option>Select Subdist</option>
                             <option value="">Sub Dist 1</option>
                             <option value="">Sub Dist 2</option>
@@ -483,7 +500,7 @@
                         </select>
                     </div>
                     <div class="col-sm-2">
-                        <select id="villages" class="form-select" aria-label="Default select example" name="dist">
+                        <select id="villages" class="form-select" aria-label="Default select example" name="villages">
                             <option>Select Villages</option>
                             <option value="">Villages 1</option>
                             <option value="">Villages 2</option>
@@ -494,14 +511,14 @@
                         </select>
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="inputMobile" placeholder="Local Area">
+                        <input type="text" class="form-control" name="localarea" id="localarea" placeholder="Local Area">
                     </div>
                     <!-- <p class="me-end btn btn-success">Add Location</p> -->
                 </div>
                 <div class="row mb-3">
-                    <label for="inputMobile" class="col-sm-2 col-form-label">Department</label>
+                    <label for="department" class="col-sm-2 col-form-label">Department</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputMobile" name="department" required>
+                        <input type="text" class="form-control" id="department" name="department" required>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -608,6 +625,65 @@
         }
    
     </script>
+    <!-- this is for skill sugations -->
+    <script>
+        const suggestionsList = [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "React.js",
+            "React JS",
+            // Add more suggestions as needed
+        ];
+        
+        let selectedSkills = [];
+        
+        function showSuggestions(input) {
+            const suggestionsDiv = document.getElementById("suggestions");
+            suggestionsDiv.innerHTML = "";
+        
+            const keywords = input.split(',').map(keyword => keyword.trim());
+        
+            const filteredSuggestions = suggestionsList.filter(suggestion =>
+                keywords.every(keyword =>
+                    suggestion.toLowerCase().includes(keyword.toLowerCase())
+                )
+            );
+        
+            filteredSuggestions.forEach(suggestion => {
+                const suggestionElement = document.createElement("div");
+                suggestionElement.textContent = suggestion;
+                suggestionElement.classList.add("suggestion");
+                suggestionElement.addEventListener("click", () => {
+                    addSkill(suggestion);
+                    document.getElementById("skillInput").value = "";
+                    suggestionsDiv.innerHTML = "";
+                });
+                suggestionsDiv.appendChild(suggestionElement);
+            });
+        }
+        
+        function addSkill(skill) {
+            selectedSkills.push(skill);
+            updateSelectedSkills();
+        }
+        
+        function updateSelectedSkills() {
+            const selectedSkillsDiv = document.getElementById("selectedSkills");
+            selectedSkillsDiv.innerHTML = "";
+        
+            selectedSkills.forEach(skill => {
+                const skillElement = document.createElement("div");
+                skillElement.textContent = skill;
+                skillElement.classList.add("selected-skill");
+                skillElement.addEventListener("click", () => {
+                    document.getElementById("skillInput").value = skill;
+                });
+                selectedSkillsDiv.appendChild(skillElement);
+            });
+        }
+        </script>
         
     <!-- <script src="../mrinal.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

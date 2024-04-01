@@ -1,216 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Selector</title>
+</head>
+<body>
+<h1>Skill Selector</h1>
+<label for="skillInput">Enter skills:</label>
+<input type="text" id="skillInput" oninput="showSuggestions(this.value)">
+<div id="suggestions"></div>
+<div id="selectedSkills"></div>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script>
+const suggestionsList = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "React.js",
+    "React JS",
+    // Add more suggestions as needed
+];
+
+let selectedSkills = [];
+
+function showSuggestions(input) {
+    const suggestionsDiv = document.getElementById("suggestions");
+    suggestionsDiv.innerHTML = "";
+
+    const keywords = input.split(',').map(keyword => keyword.trim());
+
+    const filteredSuggestions = suggestionsList.filter(suggestion =>
+        keywords.every(keyword =>
+            suggestion.toLowerCase().includes(keyword.toLowerCase())
+        )
+    );
+
+    filteredSuggestions.forEach(suggestion => {
+        const suggestionElement = document.createElement("div");
+        suggestionElement.textContent = suggestion;
+        suggestionElement.classList.add("suggestion");
+        suggestionElement.addEventListener("click", () => {
+            addSkill(suggestion);
+            document.getElementById("skillInput").value = "";
+            suggestionsDiv.innerHTML = "";
+        });
+        suggestionsDiv.appendChild(suggestionElement);
+    });
+}
+
+function addSkill(skill) {
+    selectedSkills.push(skill);
+    updateSelectedSkills();
+}
+
+function updateSelectedSkills() {
+    const selectedSkillsDiv = document.getElementById("selectedSkills");
+    selectedSkillsDiv.innerHTML = "";
+
+    selectedSkills.forEach(skill => {
+        const skillElement = document.createElement("div");
+        skillElement.textContent = skill;
+        skillElement.classList.add("selected-skill");
+        skillElement.addEventListener("click", () => {
+            document.getElementById("skillInput").value = skill;
+        });
+        selectedSkillsDiv.appendChild(skillElement);
+    });
+}
+</script>
+
 <style>
-  .card {
-  max-width: 50em;
-  flex-direction: row;
-  background-color: #696969;
-  border: 0;
-  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
-  margin: 3em auto;
-}
-.card.dark {
-  color: #fff;
-}
-.card.card.bg-light-subtle .card-title {
-  color: dimgrey;
+.suggestion {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
 }
 
-.card img {
-  max-width: 25%;
-  margin: auto;
-  padding: 0.5em;
-  border-radius: 0.7em;
-}
-.card-body {
-  display: flex;
-  justify-content: space-between;
-}
-.text-section {
-  max-width: 60%;
-}
-.cta-section {
-  max-width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-.cta-section .btn {
-  padding: 0.3em 0.5em;
-  /* color: #696969; */
-}
-.card.bg-light-subtle .cta-section .btn {
-  background-color: #898989;
-  border-color: #898989;
-}
-@media screen and (max-width: 475px) {
-  .card {
-    font-size: 0.9em;
-  }
+.selected-skill {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 15%;
+    background-color: #a4a4a4;
+    display: inline-block;
+    cursor: pointer;
 }
 </style>
-<div class="container">
-  <div class="card dark">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's
-          content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-light">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-light-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-danger-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-primary-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-success-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-warning-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-info-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-dark mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold text-white">Card title</h5>
-        <p class="card-text text-white">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div class="text-white">$129.00</div>
-        <a href="#" class="btn btn-light">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-warning mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-info mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold text-white">Card title</h5>
-        <p class="card-text text-white">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div class="text-white">$129.00</div>
-        <a href="#" class="btn btn-light">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-dark-subtle mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div>$129.00</div>
-        <a href="#" class="btn btn-dark">Buy Now</a>
-      </div>
-    </div>
-  </div>
-  <div class="card bg-success mt-4">
-    <img src="https://codingyaar.com/wp-content/uploads/chair-image.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <div class="text-section">
-        <h5 class="card-title fw-bold text-white">Card title</h5>
-        <p class="card-text text-white">Some quick example text to build on the card's content.</p>
-      </div>
-      <div class="cta-section">
-        <div class="text-white">$129.00</div>
-        <a href="#" class="btn btn-light">Buy Now</a>
-      </div>
-    </div>
-  </div>
-</div>
 
-<p class="mt-5 text-center">Get a step-by-step written explanation here: <a href="https://codingyaar.com/bootstrap-5-product-card-bootstrap-horizontal-card-2/" target="_blank">Bootstrap 5 Horizontal Product Card</a> </p>
-
-<p class="mt-3 text-center">Get a step-by-step video explanation here: <a href="https://youtu.be/GaOKdDlR0lo" target="_blank">Bootstrap 5 Horizontal Product Card</a> </p>
+</body>
+</html>
