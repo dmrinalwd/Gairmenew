@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gairme: </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../mrinal.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- text area editor -->
+
+    <style>
+        .card {
+            max-width: 70em;
+            /* flex-direction: row; */
+            background-color: #ffffff;
+            border: 0;
+            /* box-shadow: 7px 7px 7px 7px rgba(0, 0, 0, 0.18); */
+
+        }
+
+        .card.dark {
+            color: #fff;
+        }
+
+        .card.card.bg-light-subtle .card-title {
+            color: dimgrey;
+        }
+
+        .card img {
+            width: 60%;
+            padding: 1px;
+            border-radius: 0.7em;
+        }
+
+        /* .card-body {
+            /* display: flex; */
+        /* justify-content: space-between; 
+        } */
+
+        .text-section {
+            padding-left: 8px;
+            max-width: 60%;
+        }
+
+        .cta-section {
+            max-width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .cta-section .btn {
+            padding: 0.3em;
+            /* color: #696969; */
+        }
+
+        .card.bg-light-subtle .cta-section .btn {
+            background-color: #898989;
+            border-color: #898989;
+        }
+
+        @media screen and (max-width: 475px) {
+            .card {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+
+</head>
+
+<!-- start body section -->
+
+<body>
+
+    <!-- start nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light " aria-label="Offcanvas navbar large">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../bizxu-img/favi-ico.png" width="45"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                aria-controls="offcanvasNavbar2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasNavbar2"
+                aria-labelledby="offcanvasNavbar2Label">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Gairme</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="client-user.html">Client User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="post-job.html">Post Job</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="search-candidates.html">Search
+                                Candidates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="post-survey.html">Survey</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mis.html">MIS</a>
+                        </li>
+
+                        <li class="nav-item p-2">
+                            <div class="dropdown">
+                                <button class="dropbtn btn btn-outline-primary">Picture</button>
+                                <div class="dropdown-content">
+                                    <a href="#">Profile</a>
+                                    <a href="#">Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- user profile view -->
+    <main class="container">
+        <div class="card small shadow">
+            <div class="card-body">
+                <div class="row">
+                    <!-- User Image -->
+                    <div class="col-md-3">
+                        <div class="row">
+                            <p class="text-center">
+                                <img src="data:image/png;base64,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"
+                                    alt="User Image" width="100%" class="img-fluid rounded-circle">
+                            </p>
+                        </div>
+                        <!-- <div class="row small">
+                            <p class="text-center"> B.com with 5 years of Experience (Liyaans Porperties)</p>
+                        </div>
+                        <div class="row smalls pt-1"><a class="btn btn-outline-primary fw-bold"  href="view-userprofile.html" target="_blank">View
+                            Profile</a>
+                    </div>
+                        <div class="row smalls pt-1"><button class="btn btn-outline-success fw-bold"><i
+                                    class="fa fa-phone"></i>
+                                Call Candidates</button></div>
+                        <div class="row small">
+                            <p class="text-center">Email Veryfied</p>
+                        </div>
+                        <div class="row">
+                            <p class="text-center"> <a href="" style="text-decoration:  none;">Comment</a> | <a href=""
+                                    style="text-decoration:  none;">Save</a> </p>
+                        </div> -->
+                    </div>
+                    <!-- First Section -->
+                    <div class="col-md-8">
+                        <h5 class="card-title">Mrinal Das</h5>
+                        <p class="card-text">
+                            <span><i class="fa fa-briefcase" aria-hidden="true" style='color:rgb(112, 112, 112)'></i> 3y
+                                0m </span>
+                            <span><i class="fa fa-money" style='color:rgb(112, 112, 112)'></i> <i class="fa fa-inr"
+                                    style='color:rgb(112, 112, 112)'></i> 4 lacs</span>
+                            <span><i class="fa fa-map-marker" aria-hidden="true" style='color:rgb(112, 112, 112)'></i>
+                                kolkata</span>
+                        </p>
+                        <div class="row">
+                            <span class="col-md-3">Current</span>
+                            <span class="col-md-8">
+                                <p>Liyaans Properties Since april 4th 2019</br>
+                                </p>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span class="col-md-3">Highest Degree</span>
+                            <span class="col-md-8">
+                                <p>B.com in Callcutta Univercity 2015</p>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span class="col-md-3"><small>Pref Location</small></span>
+                            <span class="col-md-8">
+                                <p>Delhi/NCR, Gourgon, ANy where in north kolkata</p>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <p>
+                                <span class="smalls"><button class="btn btn-success fw-bold"><i class="fa fa-phone"></i>
+                                    </button> 8240676075 </span>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="text-start"><i class="fa fa-envelope" style="font-size: 15px;"></i>
+                                dasmrinal934@gmail.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Third Section -->
+                    <div class="col-md-1">
+                        <div class="row pt-5">
+                            <p class="text-end"><i class="fa fa-share-square" style="font-size: 25px;"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fourth Section -->
+
+                </div>
+            </div>
+        </div>
+        <div class="row" style="overflow-x:auto; max-width: 61em;">
+            <div class="table-responsive-sm">
+                <table class="table caption-top table-sm table-hover table-striped table-primary"
+                    style="overflow-x:auto; max-width: 60em;">
+                    <caption>Recently Posted Jobs</caption>
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Current location</th>
+                            <th scope="col">Preferred location</th>
+                            <th scope="col">CTC</th>
+                            <th scope="col">Ectc</th>
+                            <th scope="col">Total experience</th>
+                            <th scope="col">Relevant experience</th>
+                            <th scope="col">Official notice period</th>
+                            <th scope="col">Negotiable notice period</th>
+                            <th scope="col">Offer in hand</th>
+                            <th scope="col">Available time for interview</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kolkata</td>
+                            <td>Saltlake</td>
+                            <td>40k</td>
+                            <td>45k</td>
+                            <td>8 years</td>
+                            <td>5 year
+                            </td>
+                            <td>30 days</td>
+                            <td>no</td>
+                            <td>43k</td>
+                            <td>any time</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <!-- <p class="text-end"><a href="#" class="link-offset-2 link-underline link-underline-opacity-0">view
+                        all</a></p> -->
+
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="m-4">
+                <ul class="nav nav-pills" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="btn btn-outline-success  " id="home-tab" data-bs-toggle="tab" data-bs-target="#one" type="button" role="tab" aria-controls="one" aria-selected="true">View Resume</button>
+                  </li>
+              
+                  <li class="nav-item" role="presentation">
+                    <button class="btn btn-outline-primary" id="profile-tab" data-bs-toggle="tab" data-bs-target="#two" type="button" role="tab" aria-controls="two" aria-selected="false">Attached CV</button>
+                  </li>
+                </ul>
+              
+                <div class="tab-content text-center p-3">
+                  <div class="tab-pane fade " id="one">
+                    Working with Gairme Resume format
+                  </div>
+              
+                  <div class="tab-pane fade" id="two">
+                    <embed src= "MrinalDas.pdf" width= "700" height= "375">
+                  </div>
+                </div>
+              </div>
+        </div>
+    </main>
+
+    <!--  -->
+    <!-- start footer section -->
+    <div class="container-fluid">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">© 2024 Gairme, All Right Reserved. Designed & Development By
+                    Mrinal
+                    Das</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#twitter"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- <script src="../mrinal.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+        
+</body>
+
+</html>
