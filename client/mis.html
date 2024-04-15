@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gairme: </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../mrinal.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<!-- start body section -->
+
+<body>
+
+    <!-- start nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light " aria-label="Offcanvas navbar large">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../bizxu-img/favi-ico.png" width="45"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                aria-controls="offcanvasNavbar2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasNavbar2"
+                aria-labelledby="offcanvasNavbar2Label">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Gairme</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="client-user.html">Client User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="post-job.html">Post Job</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="search-candidates.html">Search Candidates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="post-survey.html">Survey</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mis.html">MIS</a>
+                        </li>
+
+                        <li class="nav-item p-2">
+                            <div class="dropdown">
+                                <button class="dropbtn btn btn-outline-primary">Picture</button>
+                                <div class="dropdown-content">
+                                    <a href="#">Profile</a>
+                                    <a href="#">Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- start body -->
+    <div class="container my-5 border  border-primary">
+        <div class="row p-3">
+            <form>
+                <legend class="fw-bold text-center pb-3">Add Job Title</legend>
+                <div class="row mb-3">
+                    <label for="inputjobTitle" class="col-sm-2 col-form-label">Job Title</label>
+                    <div class="col-sm-10">
+                        <div id="jobtitle"></div>
+                        <input type="text" class="form-control" id="jobtitle" name="jobtitle" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- show job title in table format -->
+    <div class="container mt-3 border">
+        <div class="table-responsive-sm">
+            <table
+                class="table caption-top table-sm table-hover table-striped text-center table-bordered border-success">
+                <thead class="table-success">
+                    <tr>
+                        <th scope="col">Job Title</th>                        
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>This is new job title any thing</td>
+                        <td>
+                            <button class="btn btn-outline-warning">Edit</button>
+                            <button class="btn btn-success">Active</button>
+                            <button class="btn btn-danger">Deactivate</button>
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td>This is new job title any thing</td>
+                        <td>
+                            <button class="btn btn-outline-warning">Edit</button>
+                            <button class="btn btn-success">Active</button>
+                            <button class="btn btn-danger">Deactivate</button>
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td>This is new job title any thing</td>
+                        <td>
+                            <button class="btn btn-outline-warning">Edit</button>
+                            <button class="btn btn-success">Active</button>
+                            <button class="btn btn-danger">Deactivate</button>
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td>This is new job title any thing</td>
+                        <td>
+                            <button class="btn btn-outline-warning">Edit</button>
+                            <button class="btn btn-success">Active</button>
+                            <button class="btn btn-danger">Deactivate</button>
+                        </td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- start footer section -->
+    <div class="container-fluid">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">© 2024 Gairme, All Right Reserved. Designed & Development By
+                    Mrinal
+                    Das</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#twitter"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
